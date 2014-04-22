@@ -1,0 +1,22 @@
+{
+  "name": "parse-rest-test",
+  "version": "0.0.1",
+  "description": "Test drive the Parse REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grigy/parse-rest-test.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/grigy/parse-rest-test/issues"
+  },
+  "dependencies": {
+    "express": "~4.0.0",
+    "restler": "~3.2.1"
+  }
+}
