@@ -2,12 +2,35 @@ var express = require('express');
 var app = express();
 var rest = require('restler');
 
+var parseApiUrl = 'https://api.parse.com/1/';
+
 app.get('/', function(req, res) {
-  rest.get('https://api.parse.com/1/users/AM0KcJcDuT', { headers: {
+  var url = parseApiUrl.concat('users/AM0KcJcDuT');
+  rest.get(url, { headers: {
     'X-Parse-Application-Id': process.env.APP_ID,
-    'X-Parse-REST-API-Key': process.env.REST_API_KEY}}).on('complete', function(data) {
-  res.send(data.username);
+    'X-Parse-REST-API-Key': process.env.REST_API_KEY}}).on('complete',
+    function(data) {
+      res.send(data.username);
+    });
 });
+
+app.post('/users', function(req, res) {
+  var user = {
+    'username': 'skybase',
+    'password': '5ky6453',
+    'skybase': true
+  };
+  var userData = JSON.stringify(user);
+  console.log(userData);
+  var url = parseApiUrl.concat('users');
+  rest.post(url, {
+    headers: {
+      'X-Parse-Application-Id': process.env.APP_ID,
+      'X-Parse-REST-API-Key': process.env.REST_API_KEY},
+    data: userData
+    }).on('complete',function(data) {
+      res.send('Done');
+    });
 });
 
 app.listen(process.env.PORT || 5000);
