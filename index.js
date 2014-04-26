@@ -8,7 +8,7 @@ app.use(bodyParser());
 var parseApiUrl = 'https://api.parse.com/1/';
 
 app.get('/', function(req, res) {
-  var url = parseApiUrl.concat('users/AM0KcJcDuT');
+  var url = parseApiUrl.concat('users/Ry7RWKxB96');
   rest.get(url, { headers: {
     'X-Parse-Application-Id': process.env.APP_ID,
     'X-Parse-REST-API-Key': process.env.REST_API_KEY}}).on('complete',
